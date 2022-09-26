@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nextjs:
+    build: ./
+    volumes:
+      - ./src:/opt/app
+      # - node_modules_volume:/opt/app/src/node_modules
+    ports:
+      - '31000:3000'
+    command: bash -c "npm run dev"
+    
