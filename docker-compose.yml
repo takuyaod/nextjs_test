@@ -10,8 +10,7 @@ services:
       - ./src:/opt/app
       - node_modules_volume:/opt/app/node_modules
     ports:
-      - '31000:3000'
+      - "31000:3000"
     command: bash -c "npm install && npm run dev"
     environment:
-     - WATCHPACK_POLLING=true
-
+      - WATCHPACK_POLLING=true
