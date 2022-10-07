@@ -1,21 +1,22 @@
-name: Node.js CI
+name: Test
 
 on: push
 
 jobs:
-  build:
+  jest-ci:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
-
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - name: setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+          node-version: 18
+
+      - name: npm install
+        working-directory: ./src
+        run: npm ci
+
+      - name: Run Jest
+        run: npm run test -- --ci
