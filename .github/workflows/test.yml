@@ -15,8 +15,8 @@ jobs:
           node-version: 18
 
       - name: npm install
-        working-directory: src
-        run: npm ci
+        run: npm insta
+        working-directory: ./src
 
       - name: Run Jest
         run: npm run test -- --ci
