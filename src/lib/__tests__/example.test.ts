@@ -2,7 +2,7 @@ import { square } from '../example'
 
 describe('square', () => {
   it('計算結果が正しいこと', () => {
-    const expected = 5
-    expect(square(2)).toStrictEqual(expected)
+    const expected = 6
+    expect(square(3)).toStrictEqual(expected)
   })
 })
