@@ -12,10 +12,10 @@ jobs:
       - name: setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 14
 
       - name: npm install
-        run: npm install
+        run: npm ci
 
       - name: Run Jest
-        run: yarn jest
+        run: npm run test -- --ci
